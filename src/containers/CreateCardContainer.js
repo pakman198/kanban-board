@@ -1,25 +1,10 @@
 import CreateCard from '../components/CreateCard';
 import { connect } from 'react-redux';
 
-const defaultData = {
-  title: '',
-  description: '',
-  assignedTo: ''
-}
+import { createCard } from '../actions/card-actions';
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createCard: (listId, cardData) => {
-      const cardId = Date.now().toString();
-      const card = {
-        id: cardId,
-        ...defaultData,
-        ...cardData
-      };
-  
-      return dispatch({ type: 'CREATE_CARD', payload: { card, listId, cardId }});
-    }
-  }
-}
+// const mapDispatchToProps =  {
+//   createCard
+// }
 
-export default connect(null, mapDispatchToProps)(CreateCard)
+export default connect(null, { createCard })(CreateCard)
